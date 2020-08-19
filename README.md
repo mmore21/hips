@@ -73,4 +73,5 @@ Python 3 is required to run the program. The following packages are also require
 Wireshark, tcpdump, or an alternative packet analyzer will be required to capture the ping sent over the network.
 
 ## License
+
 hips is available under the [MIT License](https://github.com/mmore21/hips/blob/master/LICENSE).
