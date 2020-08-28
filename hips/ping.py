@@ -19,14 +19,19 @@ else:
 
 f = Fernet(key_bytes)
 
-# Receive and encrypt message
-print("\nEnter Message:")
+while True:
+    # Receive and encrypt message
+    print("\nEnter Message (0 to exit):")
 
-msg_str = input()
-msg_bytes = msg_str.encode()
+    msg_str = input()
 
-token = f.encrypt(msg_bytes)
+    if msg_str == "0":
+        break
 
-# Store encrypted message into ping payload
-print("\nSending ping...")
-response = ping(ip_addr, count=1, payload=bytes(token), verbose=True)
+    msg_bytes = msg_str.encode()
+
+    token = f.encrypt(msg_bytes)
+
+    # Store encrypted message into ping payload
+    print("\nSending ping...")
+    response = ping(ip_addr, count=1, payload=bytes(token), verbose=True)
