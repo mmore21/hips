@@ -1,13 +1,24 @@
 from cryptography.fernet import Fernet
 
-print("Enter Key:")
-key_str = input()
-key_bytes = key_str.encode()
+# Get existing Fernet key
+def get_fernet_key():
+    print("Enter Key:")
+    key_str = input()
+    key_bytes = key_str.encode()
+    return Fernet(key_bytes)
 
-f = Fernet(key_bytes)
-print("\nEnter Capture:")
-capture_str = input()
-capture_bytes = capture_str.encode()
+# Enter the encoded capture
+def get_encoded_capture():
+    print("\nEnter Capture:")
+    capture_str = input()
+    return capture_str.encode()
 
-print("\nMessage:")
-print(f.decrypt(capture_bytes).decode())
+# Decrypt and output the encrypted message
+def decrypt_message(key, encoded_message):
+    print("\nMessage:")
+    print(key.decrypt(encoded_message).decode())
+
+if __name__ == "__main__":
+    f = get_fernet_key()
+    capture_bytes = get_encoded_capture()
+    decrypt_message(key=f, encoded_message=capture_bytes)

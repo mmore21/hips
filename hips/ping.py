@@ -8,6 +8,7 @@ ip_addr = input()
 # Generate key
 print("\nGenerate New Key? (Y/n)")
 gen_key_str = input().lower()
+
 if gen_key_str == "y" or gen_key_str == "":
     key_bytes = Fernet.generate_key()
     print("\nPlease save the following key to a secure location. It cannot be regenerated.")

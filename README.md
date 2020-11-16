@@ -40,9 +40,9 @@ Sending ping...
 Reply from 192.168.1.1, 108 bytes in 0.34ms
 </pre>
 
-### Decode Ping
+### Decode Ping (Manual)
 
-To decode an encrypted ping, run the following command:
+To decrypt an encrypted ping by manually intercepting the ping packet, run the following command:
 
 <pre>
 python hips/decoder.py
@@ -61,7 +61,15 @@ Message:
 Hello world!
 </pre>
 
-The capture in the above example refers to the encrypted message within the payload of the captured ICMP message. A packet analyzer is required to capture the ping.
+The capture in the above example refers to the encrypted message within the payload of the captured ICMP message. A packet analyzer is required to capture the ping. An automated script using tcpdump as a packet analyzer is also described below.
+
+### Decode Ping (Automated)
+
+To decrypt an enrypted ping using an automated tcpdump process, run the following command:
+
+<pre>
+python hips/sniffer.py
+</pre>
 
 ## Requirements
 
@@ -75,3 +83,4 @@ Wireshark, tcpdump, or an alternative packet analyzer will be required to captur
 ## License
 
 hips is available under the [MIT License](https://github.com/mmore21/hips/blob/master/LICENSE).
+
