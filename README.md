@@ -6,11 +6,19 @@ Steganography P2P system using encrypted payloads in ICMP ping packets.
 
 ## Usage
 
-To run hips, clone or download this repository to a desired location. Ensure that you have the proper requirements before running the respective scripts.
+### Dependencies
+
+The following requirements are needed to run hips:
+
+* Python 3
+* pipenv
+
+After installing the necessary dependencies, clone or download this repository to a desired location. Ensure that you have the proper requirements before running the respective scripts. Administrative privileges are required to run certain portions of the program.
 
 <pre>
 git clone https://github.com/mmore21/hips.git
 cd hips/
+sudo pipenv install -r requirements.txt
 </pre>
 
 ### Send Ping
@@ -18,7 +26,7 @@ cd hips/
 To send an encrypted ping, run the following command:
 
 <pre>
-python hips/ping.py
+sudo pipenv run python3 hips/ping.py
 </pre>
 
 Example of the ping.py script:
@@ -45,7 +53,7 @@ Reply from 192.168.1.1, 108 bytes in 0.34ms
 To decrypt an encrypted ping by manually intercepting the ping packet, run the following command:
 
 <pre>
-python hips/decoder.py
+sudo pipenv run python3 hips/decoder.py
 </pre>
 
 Example of the decoder.py script:
@@ -68,7 +76,7 @@ The capture in the above example refers to the encrypted message within the payl
 To decrypt an enrypted ping using an automated tcpdump process, run the following command:
 
 <pre>
-python hips/sniffer.py
+sudo pipenv run python3 hips/sniffer.py
 </pre>
 
 ## Requirements
