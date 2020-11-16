@@ -6,7 +6,7 @@ Steganography P2P system using encrypted payloads in ICMP ping packets.
 
 ## Usage
 
-### Dependencies
+### Setup
 
 The following requirements are needed to run hips:
 
@@ -73,6 +73,12 @@ The capture in the above example refers to the encrypted message within the payl
 
 ### Decode Ping (Automated)
 
+Note, this process requires a tcpdump installation:
+
+<pre>
+sudo apt install tcpdump
+</pre>
+
 To decrypt an enrypted ping using an automated tcpdump process, run the following command:
 
 <pre>
@@ -81,12 +87,12 @@ sudo pipenv run python3 hips/sniffer.py
 
 ## Requirements
 
-Python 3 is required to run the program. The following packages are also required (available on PyPI):
+Python 3 and pipenv are required to install install the requirements:
 
 * cryptography
 * pythonping
 
-Wireshark, tcpdump, or an alternative packet analyzer will be required to capture the ping sent over the network.
+If not using the automated sniffer, a packet analyzer such as Wireshark or tcpdump will be required to capture the ping sent over the network.
 
 ## License
 
